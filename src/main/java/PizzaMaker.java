@@ -1,13 +1,16 @@
-import Dough.ShortbreadDough;
-import Dough.YeastDough;
 import Pizza.*;
-import Topping.*;
+import PizzaFactory.AmericanPizzaFactory;
+import PizzaFactory.AsianPizzaFactory;
+import PizzaFactory.ItalianPizzaFactory;
+import PizzaFactory.PizzaFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 
 public class PizzaMaker {
     Pizza pizza;
     int choiceOfPizza;
+    PizzaFactory pizzaFactory;
 
     public void main(BufferedReader reader) {
         boolean isRight = false;
@@ -17,17 +20,21 @@ public class PizzaMaker {
                 choiceOfPizza = Integer.parseInt(reader.readLine());
                 switch (choiceOfPizza) {
                     case 1: {
-                        pizza = new AmericanPizza(new YeastDough(), new CucumbersTopping(), new TomatoesTopping(), new BeconTopping());
+                        pizzaFactory = new AmericanPizzaFactory();
+                        pizza = pizzaFactory.createPizza();
                         pizza.bake();
+                        System.out.println(pizza);
                         break;
                     }
                     case 2: {
-                        pizza = new ItalianPizza(new YeastDough(), new PeperoniTopping(), new OlivesTopping(), new MushroomsTopping());
+                        pizzaFactory = new ItalianPizzaFactory();
+                        pizza = pizzaFactory.createPizza();
                         pizza.bake();
                         break;
                     }
                     case 3: {
-                        pizza = new AsianPizza(new ShortbreadDough(), new HamTopping(), new CucumbersTopping(), new OlivesTopping());
+                        pizzaFactory = new AsianPizzaFactory();
+                        pizza = pizzaFactory.createPizza();
                         pizza.bake();
                         break;
                     }

@@ -7,9 +7,10 @@ import Topping.CucumbersTopping;
 import Topping.TomatoesTopping;
 
 public class AmericanPizza implements Pizza {
-    public void bake() {
+    public AmericanPizza bake() {
         System.out.println("Your American pizza is ready!" + "\n" +
                 "Ingredients: yeast dough, cucumbers,tomatoes, becon");
+        return new AmericanPizza(new YeastDough(), new CucumbersTopping(), new TomatoesTopping(), new BeconTopping());
     }
 
     public YeastDough getYeastDough() {

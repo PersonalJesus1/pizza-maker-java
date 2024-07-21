@@ -6,10 +6,10 @@ import Topping.OlivesTopping;
 import Topping.PeperoniTopping;
 
 public class ItalianPizza implements Pizza {
-    public void bake() {
+    public  Pizza bake() {
         System.out.println("Your Italian pizza is ready!" + "\n" +
                 "Ingredients: yeast dough, peperoni, olives, mushrooms");
-
+        return new ItalianPizza(new YeastDough(), new PeperoniTopping(), new OlivesTopping(), new MushroomsTopping());
     }
 
     private YeastDough yeastDough;
@@ -54,5 +54,11 @@ public class ItalianPizza implements Pizza {
         this.peperoniTopping = peperoniTopping;
         this.olivesTopping = olivesTopping;
         this.mushroomsTopping = mushroomsTopping;
+    }
+    public ItalianPizza() {
+        this.yeastDough = new YeastDough();
+        this.peperoniTopping = new PeperoniTopping();
+        this.olivesTopping = new OlivesTopping();
+        this.mushroomsTopping = new MushroomsTopping();
     }
 }

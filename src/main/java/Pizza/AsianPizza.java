@@ -6,9 +6,10 @@ import Topping.HamTopping;
 import Topping.OlivesTopping;
 
 public class AsianPizza implements Pizza {
-    public void bake() {
+    public AsianPizza bake() {
         System.out.println("Your Asian pizza is ready!" + "\n" +
                 "Ingredients: shortbread dough, ham, cucumbers, olives");
+        return new AsianPizza(new ShortbreadDough(), new HamTopping(), new CucumbersTopping(), new OlivesTopping());
     }
 
     private ShortbreadDough shortbreadDough;
